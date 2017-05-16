@@ -7,9 +7,9 @@ install:
     - pip install -r requirements.txt
 
 script:
-    - pylint HWL3
-    - pylint "./HWL4/tests"
-    - pylint "./HWL4/wsgi"
-    - pylint "./HWL4/parse"
+    - pylint HWL3.py
+    - pylint HWL4/tests.py
+    - pylint HWL4/wsgi.py
+    - pylint HWL4/parse.py
 
 sudo: false
