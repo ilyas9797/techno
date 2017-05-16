@@ -8,8 +8,8 @@ install:
 
 script:
     - pylint HWL3
-    - pylint ./HWL4/tests
-    - pylint ./HWL4/wsgi
-    - pylint ./HWL4/parse
+    - pylint "./HWL4/tests"
+    - pylint "./HWL4/wsgi"
+    - pylint "./HWL4/parse"
 
 sudo: false
