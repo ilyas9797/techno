@@ -11,6 +11,12 @@ class WSGIApplication(object):
         ('Server', 'WSGIExample/1.0'),
     ]
 
+    def get_default_headers(self):
+        return self.default_headers
+
+    def second_public_func(self):
+        pass
+
     def __init__(self, environment, start_response_callback):
         self.environment = environment
         self.start_response = start_response_callback
@@ -25,6 +31,6 @@ class WSGIApplication(object):
         for task in critical_tasks:
             yield (task.title + ' -- до ' + str(task.estimate) + '\n').encode('utf-8')
 
-
-http_wsgi_server = make_server('127.0.0.1', 9090, WSGIApplication)
-http_wsgi_server.handle_request()
+if __name__ == '__main__':
+    http_wsgi_server = make_server('127.0.0.1', 9090, WSGIApplication)
+    http_wsgi_server.handle_request()
