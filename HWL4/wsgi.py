@@ -12,9 +12,11 @@ class WSGIApplication(object):
     ]
 
     def get_default_headers(self):
+        '''Function docstring'''
         return self.default_headers
 
     def second_public_func(self):
+        '''Function docstring'''
         pass
 
     def __init__(self, environment, start_response_callback):
@@ -32,5 +34,5 @@ class WSGIApplication(object):
             yield (task.title + ' -- до ' + str(task.estimate) + '\n').encode('utf-8')
 
 if __name__ == '__main__':
-    http_wsgi_server = make_server('127.0.0.1', 9090, WSGIApplication)
-    http_wsgi_server.handle_request()
+    HTTP_SERVER = make_server('127.0.0.1', 9090, WSGIApplication)
+    HTTP_SERVER.handle_request()

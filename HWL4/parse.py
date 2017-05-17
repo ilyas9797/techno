@@ -16,8 +16,8 @@ def get_dataset(filename):
     :raises yaml.YAMLError: if has problem with format
     :raises ValueError: if has problem with content
     '''
-    with open(filename, 'rt', encoding='utf-8') as input:
-        package = load(input, Loader=Loader)
+    with open(filename, 'rt', encoding='utf-8') as input_file:
+        package = load(input_file, Loader=Loader)
         dataset = package.get('dataset')
         if not isinstance(dataset, list):
             raise ValueError('wrong format')
