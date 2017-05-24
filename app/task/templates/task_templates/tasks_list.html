@@ -1,0 +1,16 @@
+<h1>  Tasks</h1>
+{% if tasks %}
+    <ul>
+    {% for task in tasks %}
+        <li><a href="{% url 'task:task-detail' task.id %}">{{ task }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tasks were created.</p>
+{% endif %}
+<form method="get" action="{% url 'task:task-creating' %}" >
+    <button type="submit">Создать задачу</button>
+</form>
+<form method="get" action="{% url 'mainapp:main-page' %}" >
+    <button type="submit">Вернуться на главную</button>
+</form>
