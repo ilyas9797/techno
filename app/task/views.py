@@ -35,9 +35,8 @@ def detail(request, **kwargs):
 def modify(request, **kwargs):
     task = get_object_or_404(models.Task, id=kwargs['pk'])
     if request.method == 'POST':
-        modifying_form = forms.TaskModifyForm(request.POST)
+        modifying_form = forms.TaskModifyForm(request.POST, instance=task)
         if modifying_form.is_valid():
-            task.delete()
             task = modifying_form.save()
             task_url = task.get_url()
             return HttpResponseRedirect(task_url)
