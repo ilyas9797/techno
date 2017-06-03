@@ -1,7 +1,9 @@
-{% extends "task_templates/create_task.html" %}
-{% block delete %}
-<form method="post" action="{{ formdeleteurl }}">
+<form method="post" action="{{ form_url }}">
     {% csrf_token %}
-    <button type="submit">Удалить</button>
+    {{ form.as_p }}
+    <button type="submit">Сохранить изменения</button>
 </form>
-{% endblock %}
+<form method="post" action="{{ form_delete_url }}">
+    {% csrf_token %}
+    <button type="submit">Удалить задачу</button>
+</form>

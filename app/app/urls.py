@@ -19,6 +19,4 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^task/', include('task.urls')),
-    url(r'^roadmap/', include('roadmap.urls')),
-    url(r'^', include('mainapp.urls')),
 ]

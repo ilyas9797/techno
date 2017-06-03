@@ -1,17 +1,13 @@
-{% if iscritical %}
+{% if task.is_critical %}
 <style>
     .critical { color: red; }
 </style>
 {% endif %}
 <h1 class="critical">{{ task }}</h1>
 <div class="task_estimate">{{ task.estimate }}</div>
-{% if task.state %}
-    State: ready
-{% else %}
-    State: in progress
-{% endif %}
+Состояние задачи: {{ task.get_state_display }}
 <form method="get" action="{% url 'task:task-modifying' task.id %}">
-    <button type="submit">Редактировать</button>
+    <button type="submit">Редактировать задачу</button>
 </form>
 <form method="get" action="{% url 'task:tasks-listing' %}">
     <button type="submit">Список задач</button>
