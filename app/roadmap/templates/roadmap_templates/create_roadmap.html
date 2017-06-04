@@ -1,0 +1,5 @@
+<form method="post" action="{% url 'roadmap:roadmap-creating' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Создать дорожную карту</button>
+</form>

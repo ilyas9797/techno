@@ -1,0 +1,13 @@
+<h1>  Roadmaps</h1>
+{% if roadmaps %}
+    <ul>
+    {% for roadmap in roadmaps %}
+        <li><a href="{% url 'roadmap:roadmap-detail' roadmap.id %}">{{ roadmap }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No roadmaps were created.</p>
+{% endif %}
+<form method="get" action="{% url 'roadmap:roadmap-creating' %}" >
+    <button type="submit">Создать дорожную карту</button>
+</form>

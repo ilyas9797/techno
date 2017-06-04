@@ -1,0 +1,18 @@
+<h1>{{ roadmap }}</h1>
+<p>Список задач:</p>
+{% if task_set %}
+    <ul>
+    {% for task in task_set %}
+        <li><a href="{% url 'task:task-detail' task.id %}">{{ task }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    Нет прикрепленных задач
+{% endif %}
+<form method="post" action="{% url 'roadmap:roadmap-deleting' roadmap.id %}">
+    {% csrf_token %}
+    <button type="submit">Удалить дорожнуюкарту</button>
+</form>
+<form method="get" action="{% url 'roadmap:roadmaps-listing' %}">
+    <button type="submit">Список дорожных карт</button>
+</form>
