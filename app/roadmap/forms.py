@@ -8,4 +8,4 @@ class RoadmapCreatingForm(forms.ModelForm):
         model = models.Roadmap
         fields = ['title']
 
-    tasks = forms.ModelMultipleChoiceField(queryset=Task.objects.filter(roadmap=None).all())
+    tasks = forms.ModelMultipleChoiceField(queryset=Task.free_objects.all())

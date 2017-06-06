@@ -10,29 +10,13 @@ from roadmap.forms import RoadmapCreatingForm
 # Create your views here.
 
 
+@method_decorator(require_GET, name='dispatch')
 class IndexRoadmaps(generic.ListView):
     template_name = 'roadmap_templates/roadmaps_list.html'
     context_object_name = 'roadmaps'
 
     def get_queryset(self):
         return Roadmap.objects.all()[:]
-
-'''
-def create_roadmap(request):
-    if request.method == 'POST':
-        creating_form = RoadmapCreatingForm(request.POST)
-        if creating_form.is_valid():
-            roadmap = creating_form.save()
-            for task in creating_form.cleaned_data['tasks']:
-                roadmap.task_set.add(task)
-            roadmap_url = roadmap.get_absolute_url()
-            return HttpResponseRedirect(roadmap_url)
-    else:
-        creating_form = RoadmapCreatingForm()
-    return render(request, 'roadmap_templates/create_roadmap.html',
-                  {'form': creating_form,
-                   'formurl': reverse('roadmap:roadmap-creating')})
-'''
 
 
 class CreateRoadmap(generic.TemplateView):

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'task',
     'roadmap',
+    'mainapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,8 +79,8 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'appdb',
-        'USER': 'dbadmin',
+        'NAME': 'app1db',
+        'USER': 'dbadmin1',
     }
 }
 
